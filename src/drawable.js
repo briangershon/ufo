@@ -1,5 +1,3 @@
-const MAX_POSITION_CHANGE = 4;
-
 class Drawable {
   constructor({
     debug = false,

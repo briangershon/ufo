@@ -33,9 +33,8 @@ function drawAll(now) {
   ctx.save();
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
-  ctx.strokeStyle = 'black';
-  ctx.setLineDash([14, 4]);
-  ctx.lineWidth = 2;
+  ctx.strokeStyle = 'lightgray';
+  ctx.lineWidth = 1;
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
   ctx.restore();
   entities.forEach((e) => {

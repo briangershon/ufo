@@ -80,7 +80,7 @@ class Drawable {
       ctx.setLineDash([2, 2]);
 
       ctx.beginPath();
-      ctx.strokeStyle = 'black';
+      ctx.strokeStyle = 'lightgray';
       ctx.moveTo(this.x, this.y);
       ctx.lineTo(this.endX, this.endY);
       ctx.stroke();
@@ -102,7 +102,7 @@ class Drawable {
       );
 
       // plot destination
-      ctx.fillStyle = 'black';
+      ctx.fillStyle = 'lightgray';
       ctx.fillRect(this.endX - 3, this.endY - 3, 6, 6);
     }
 

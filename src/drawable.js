@@ -40,25 +40,28 @@ class Drawable {
   }
 
   update(now) {
-    // every n seconds, pick a new destination
+    // every n seconds, pick a new destination for 60%
     if (now - this.lastUpdated > 6000) {
-      this.startX = this.x;
-      this.startY = this.y;
-      this.endX =
-        Math.floor(
-          Math.random() *
-            Math.floor((this.canvasWidth - this.spriteWidth) / this.scale)
-        ) +
-        this.spriteWidth / 2 / this.scale;
-      this.endY =
-        Math.floor(
-          Math.random() *
-            Math.floor((this.canvasHeight - this.spriteHeight) / this.scale)
-        ) +
-        this.spriteHeight / 2 / this.scale;
-      this.fraction = 0;
+      if (Math.random() < 0.6) {
+        this.startX = this.x;
+        this.startY = this.y;
+        this.endX =
+          Math.floor(
+            Math.random() *
+              Math.floor((this.canvasWidth - this.spriteWidth) / this.scale)
+          ) +
+          this.spriteWidth / 2 / this.scale;
+        this.endY =
+          Math.floor(
+            Math.random() *
+              Math.floor((this.canvasHeight - this.spriteHeight) / this.scale)
+          ) +
+          this.spriteHeight / 2 / this.scale;
+        this.fraction = 0;
+      }
       this.lastUpdated = now;
     }
+
     if (now - this.lastFractionUpdated > 100) {
       if (this.fraction < 1) {
         this.fraction += 0.01;
@@ -117,7 +120,7 @@ class Drawable {
     );
 
     // update animation frames
-    if (!this.lastFrameUpdated || now - this.lastFrameUpdated >= 100) {
+    if (!this.lastFrameUpdated || now - this.lastFrameUpdated > 100) {
       this.frame++;
       if (this.frame === this.totalFrames) {
         this.frame = 0;

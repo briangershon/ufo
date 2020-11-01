@@ -2,6 +2,7 @@ const MAX_POSITION_CHANGE = 4;
 
 class Drawable {
   constructor({
+    debug = false,
     backgroundColor = 'white',
     canvasContext,
     canvasWidth = 100,
@@ -14,6 +15,7 @@ class Drawable {
     spriteWidth = 32,
     spriteHeight = 32,
   }) {
+    this.debug = debug;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
     this.backgroundColor = backgroundColor;
@@ -25,8 +27,6 @@ class Drawable {
     this.frame = Math.floor(Math.random() * Math.floor(totalFrames));
     this.totalFrames = totalFrames;
 
-    this.width = 10;
-    this.height = 10;
     this.ctx = canvasContext;
     this.startX = x;
     this.startY = y;
@@ -42,18 +42,22 @@ class Drawable {
   }
 
   update(now) {
-    // every 10 seconds, pick a new destination
-    if (now - this.lastUpdated > 5000) {
+    // every n seconds, pick a new destination
+    if (now - this.lastUpdated > 6000) {
       this.startX = this.x;
       this.startY = this.y;
-      this.endX = Math.floor(
-        Math.random() *
-          Math.floor(this.canvasWidth / this.scale - this.width / this.scale)
-      );
-      this.endY = Math.floor(
-        Math.random() *
-          Math.floor(this.canvasHeight / this.scale - this.height / this.scale)
-      );
+      this.endX =
+        Math.floor(
+          Math.random() *
+            Math.floor((this.canvasWidth - this.spriteWidth) / this.scale)
+        ) +
+        this.spriteWidth / 2 / this.scale;
+      this.endY =
+        Math.floor(
+          Math.random() *
+            Math.floor((this.canvasHeight - this.spriteHeight) / this.scale)
+        ) +
+        this.spriteHeight / 2 / this.scale;
       this.fraction = 0;
       this.lastUpdated = now;
     }
@@ -71,33 +75,36 @@ class Drawable {
     const ctx = this.ctx;
     ctx.save();
     ctx.scale(this.scale, this.scale);
-    ctx.setLineDash([2, 2]);
 
-    ctx.beginPath();
-    ctx.strokeStyle = 'blue';
-    ctx.moveTo(this.x, this.y);
-    ctx.lineTo(this.endX, this.endY);
-    ctx.stroke();
-    ctx.closePath();
+    if (this.debug) {
+      ctx.setLineDash([2, 2]);
 
-    ctx.strokeStyle = 'black';
-    ctx.fillStyle = this.backgroundColor;
-    ctx.fillRect(
-      this.x - this.spriteWidth / 2,
-      this.y - this.spriteHeight / 2,
-      this.spriteWidth,
-      this.spriteHeight
-    );
-    ctx.strokeRect(
-      this.x - this.spriteWidth / 2,
-      this.y - this.spriteHeight / 2,
-      this.spriteWidth,
-      this.spriteHeight
-    );
+      ctx.beginPath();
+      ctx.strokeStyle = 'black';
+      ctx.moveTo(this.x, this.y);
+      ctx.lineTo(this.endX, this.endY);
+      ctx.stroke();
+      ctx.closePath();
 
-    // plot destination
-    ctx.fillStyle = 'black';
-    ctx.fillRect(this.endX - 3, this.endY - 3, 6, 6);
+      ctx.strokeStyle = 'black';
+      ctx.fillStyle = this.backgroundColor;
+      ctx.fillRect(
+        this.x - this.spriteWidth / 2,
+        this.y - this.spriteHeight / 2,
+        this.spriteWidth,
+        this.spriteHeight
+      );
+      ctx.strokeRect(
+        this.x - this.spriteWidth / 2,
+        this.y - this.spriteHeight / 2,
+        this.spriteWidth,
+        this.spriteHeight
+      );
+
+      // plot destination
+      ctx.fillStyle = 'black';
+      ctx.fillRect(this.endX - 3, this.endY - 3, 6, 6);
+    }
 
     ctx.drawImage(
       this.spriteSheet,
@@ -117,12 +124,6 @@ class Drawable {
       if (this.frame === this.totalFrames) {
         this.frame = 0;
       }
-      this.x +=
-        Math.random() * Math.floor(MAX_POSITION_CHANGE) -
-        MAX_POSITION_CHANGE / 2;
-      this.y +=
-        Math.random() * Math.floor(MAX_POSITION_CHANGE) -
-        MAX_POSITION_CHANGE / 2;
       this.lastFrameUpdated = now;
     }
     ctx.restore();

@@ -4,14 +4,16 @@ const canvas = document.getElementById('my-canvas');
 const ctx = canvas.getContext('2d');
 const ufo = document.getElementById('ufo-spritesheet');
 const backgroundColor = 'white';
-const SCALE = 2;
+const SCALE = 1;
+const NUMBER_OF_ENTITIES = 30;
 
 const entities = [];
 
 function init() {
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < NUMBER_OF_ENTITIES; i++) {
     entities.push(
       new Drawable({
+        debug: true,
         canvasWidth: canvas.width,
         canvasHeight: canvas.height,
         backgroundColor,
@@ -28,8 +30,14 @@ function init() {
 }
 
 function drawAll(now) {
+  ctx.save();
   ctx.fillStyle = backgroundColor;
   ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.strokeStyle = 'black';
+  ctx.setLineDash([14, 4]);
+  ctx.lineWidth = 2;
+  ctx.strokeRect(0, 0, canvas.width, canvas.height);
+  ctx.restore();
   entities.forEach((e) => {
     e.draw(now);
     e.update(now);

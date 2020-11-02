@@ -22,3 +22,8 @@ Animating UFOs with my VanillaJS game engine.
 ## Run lint
 
     npm run lint
+
+## Build a library to use on another site
+
+    # create `dist/ufo-widget.js`
+    npm run build-library

@@ -27,3 +27,16 @@ Animating UFOs with my VanillaJS game engine.
 
     # create `dist/ufo-widget.js`
     npm run build-library
+
+Example usage:
+
+```html
+<canvas id="my-canvas" width="600" height="300"></canvas>
+<script src="./ufo-widget.js"></script>
+<script>
+    const canvas = document.getElementById('my-canvas');
+    ufoWidget.default({
+      canvas
+    });
+</script>
+```

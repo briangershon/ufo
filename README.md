@@ -34,9 +34,12 @@ Example usage:
 <canvas id="my-canvas" width="600" height="300"></canvas>
 <script src="./ufo-widget.js"></script>
 <script>
-    const canvas = document.getElementById('my-canvas');
-    ufoWidget.default({
-      canvas
-    });
+  const canvas = document.getElementById('my-canvas');
+  ufoWidget.default({
+    canvas,
+    backgroundColor: '#0A9DF8',
+    scale: 1,
+    entityCount: 22
+  });
 </script>
 ```

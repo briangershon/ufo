@@ -2,7 +2,15 @@
 
 ![Build Status](https://github.com/briangershon/ufo/workflows/Continuous%20Integration/badge.svg)
 
-Animating UFOs with my VanillaJS game engine.
+Animating UFOs with VanillaJS.
+
+- HTML canvas
+- spritesheet-based animation
+- simple game loop with update() and draw() functions
+- uses Parcel bunder to run locally (with watch) or create a distribution
+- optionally build as a library to include JS on any website (uses `esbuild`)
+
+<img src="screenshot.png" width="613" height="307" alt="view of UFOs on canvas" />
 
 ## Run Local Dev Server
 
@@ -23,7 +31,7 @@ Animating UFOs with my VanillaJS game engine.
 
     npm run lint
 
-## Build a library to use on another site
+## Build as a library to use on another site
 
     # create `dist/ufo-widget.js`
     npm run build-library

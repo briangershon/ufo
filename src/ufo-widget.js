@@ -8,7 +8,6 @@ ufo.src =
 
 function init({
   canvas,
-  backgroundColor = '#0A9DF8',
   scale = 1,
   entityCount = 22,
 }) {
@@ -20,7 +19,6 @@ function init({
         debug: false,
         canvasWidth: canvas.width,
         canvasHeight: canvas.height,
-        backgroundColor,
         scale,
         x: canvas.width / 2 / scale,
         y: canvas.height / 2 / scale,
@@ -37,8 +35,7 @@ function init({
 
   function drawAll(now) {
     ctx.save();
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
     mountain.draw(now);
     mountain.update(now);

@@ -45,7 +45,6 @@ Example usage:
   const canvas = document.getElementById('my-canvas');
   ufoWidget.default({
     canvas,
-    backgroundColor: '#0A9DF8',
     scale: 1,
     entityCount: 22
   });

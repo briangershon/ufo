@@ -1,7 +1,6 @@
 class Drawable {
   constructor({
     debug = false,
-    backgroundColor = 'white',
     canvasContext,
     canvasWidth = 100,
     canvasHeight = 100,
@@ -16,7 +15,6 @@ class Drawable {
     this.debug = debug;
     this.canvasWidth = canvasWidth;
     this.canvasHeight = canvasHeight;
-    this.backgroundColor = backgroundColor;
     this.scale = scale;
     this.spriteSheet = spriteSheet;
     this.spriteWidth = spriteWidth;
@@ -88,7 +86,6 @@ class Drawable {
       ctx.closePath();
 
       ctx.strokeStyle = 'black';
-      ctx.fillStyle = this.backgroundColor;
       ctx.fillRect(
         this.x - this.spriteWidth / 2,
         this.y - this.spriteHeight / 2,

@@ -43,7 +43,7 @@ export default class DrawMountainBackground {
       const nextHeight = Math.sin(this.radians) * this.radius;
 
       if (this.radians > Math.PI) {
-        this.radius = getRandomInt(0.6 * this.height);
+        this.radius = getRandomInt(0.5 * this.height) + (0.2 * this.height);
         this.radians = 0;
       }
       this.heights[this.width] = nextHeight;

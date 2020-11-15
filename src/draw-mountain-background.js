@@ -58,7 +58,3 @@ export default class DrawMountainBackground {
 function getRandomInt(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
-class Mountain {
-  constructor({ radius, radianIncrement }) {}
-}

@@ -26,6 +26,7 @@ Animating UFOs with VanillaJS.
 ## Package project up in dist folder for release to server
 
     npm run build
+    npm run publish     # update github pages
 
 ## Run lint
 

@@ -10,7 +10,8 @@
     "build": "rm -f dist/* && parcel build --no-source-maps index.html",
     "test": "jest specs --watch",
     "test-ci": "jest specs",
-    "build-library": "esbuild 'src/ufo-widget.js' --format=iife --global-name=ufoWidget --bundle --minify --outfile='dist/ufo-widget.js'"
+    "build-library": "esbuild 'src/ufo-widget.js' --format=iife --global-name=ufoWidget --bundle --minify --outfile='dist/ufo-widget.js'",
+    "publish": "git subtree push --prefix dist origin gh-pages"
   },
   "author": "Brian Gershon",
   "license": "MIT",

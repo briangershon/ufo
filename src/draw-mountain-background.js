@@ -26,8 +26,10 @@ export default class DrawMountainBackground {
     for (let i = 0; i < width; i++) {
       ctx.fillStyle = 'lightgray';
       ctx.fillRect(i, height - this.heights[i], 1, height);
+      ctx.fillStyle = 'white';
+      ctx.fillRect(i, height - this.heights[i], 1, 12);
       ctx.fillStyle = 'gray';
-      ctx.fillRect(i, height - this.heights[i], 2, 5);
+      ctx.fillRect(i, height - this.heights[i], 1, 5);
     }
     ctx.restore();
   }
@@ -45,7 +47,8 @@ export default class DrawMountainBackground {
         this.radians = 0;
       }
       this.heights[this.width] = nextHeight;
-      this.radians += 0.01; //0.04 * Math.random(); //0.01;
+      this.radians += 0.01;
+      // this.radians += 0.04 * Math.random(); //0.01;
 
       this.lastUpdated = now;
     }

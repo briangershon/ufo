@@ -25,17 +25,17 @@ jobs:
     - name: node version
       run: node --version
 
-    - name: npm audit
-      run: npm audit
-
     - name: npm install
       run: npm install
 
-    - name: Compile
-      run: npm run build
+    - name: npm audit
+      run: npm audit
+
+    - name: lint
+      run: npm run lint
 
     - name: npm test
       run: npm run test-ci
 
-    - name: Lint
-      run: npm run lint
+    - name: Compile
+      run: npm run build

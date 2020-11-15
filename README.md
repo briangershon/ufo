@@ -23,14 +23,19 @@ Animating UFOs with VanillaJS.
 
     npm test
 
-## Package project up in dist folder for release to server
-
-    npm run build
-    npm run publish     # update github pages
-
 ## Run lint
 
     npm run lint
+
+## Package project up in dist folder for release to server
+
+    npm run build
+
+## Publish on github pages
+
+    npm run build-gh
+    git commit -m "latest build"
+    npm run publish-gh
 
 ## Build as a library to use on another site
 

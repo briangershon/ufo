@@ -10,6 +10,10 @@ Animating UFOs with VanillaJS.
 - uses Parcel bunder to run locally (with watch) or create a distribution
 - optionally build as a library to include JS on any website (uses `esbuild`)
 
+## Demo
+
+View demo at <https://briangershon.github.io/ufo/>.
+
 <img src="animated.gif" width="640" height="326" alt="UFO animation" />
 
 ## Run Local Dev Server

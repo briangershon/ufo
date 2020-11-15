@@ -5,7 +5,7 @@
 Animating UFOs with VanillaJS.
 
 - HTML canvas
-- spritesheet-based animation
+- spritesheet-based animation ([art and spritesheets created on Piskel](https://www.piskelapp.com/user/5359821142360064))
 - simple game loop with update() and draw() functions
 - uses Parcel bunder to run locally (with watch) or create a distribution
 - optionally build as a library to include JS on any website (uses `esbuild`)

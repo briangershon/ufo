@@ -1,4 +1,5 @@
 import Drawable from './drawable';
+import DrawMountainBackground from './draw-mountain-background';
 
 const ufo = new Image();
 // ufo.png base64 via https://onlinepngtools.com/convert-png-to-base64
@@ -29,6 +30,9 @@ function init({
       })
     );
   }
+
+  const mountain = new DrawMountainBackground({ canvas });
+
   window.requestAnimationFrame(drawAll);
 
   function drawAll(now) {
@@ -36,6 +40,8 @@ function init({
     ctx.fillStyle = backgroundColor;
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.restore();
+    mountain.draw(now);
+    mountain.update(now);
     entities.forEach((e) => {
       e.draw(now);
       e.update(now);

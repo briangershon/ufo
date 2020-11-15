@@ -10,7 +10,7 @@ Animating UFOs with VanillaJS.
 - uses Parcel bunder to run locally (with watch) or create a distribution
 - optionally build as a library to include JS on any website (uses `esbuild`)
 
-<img src="screenshot.png" width="613" height="307" alt="view of UFOs on canvas" />
+<img src="screenshot.png" width="594" height="289" alt="Screenshot of UFO animation" />
 
 ## Run Local Dev Server
 
